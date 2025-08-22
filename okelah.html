@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Muhammad Yusuf Lauma</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Animasi Background Gradient */
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a1a2e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header */
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    /* Konten utama */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .content p {
+      max-width: 500px;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #ddd;
+      text-shadow: 0 0 6px rgba(255,255,255,0.2);
+    }
+
+    /* Foto profil */
+    .foto-profil {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+      margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .foto-profil:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    }
+
+    /* Tombol Instagram */
+    .contact a {
+      display: inline-block;
+      background: linear-gradient(90deg, #e1306c, #ff6ec4);
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 0 15px rgba(255, 110, 196, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      z-index: 2;
+    }
+    .contact a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 110, 196, 0.8);
+    }
+    .contact a:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 10px rgba(255, 110, 196, 0.5);
+    }
+
+    /* Galeri karya */
+    .gallery {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+    .gallery img {
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    }
+
+    /* Footer */
+    footer {
+      padding: 15px;
+      font-size: 0.9rem;
+      background: rgba(0,0,0,0.7);
+      color: #aaa;
+      text-align: center;
+      text-shadow: 0 0 6px rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Muhammad Yusuf Lauma</h1>
+    <p class="tagline">Editor</p>
+  </header>
+
+  <div class="content">
+    <!-- Foto Profil -->
+    <img src="images/profil.jpg" alt="Foto Profil" class="foto-profil">
+
+    <!-- Deskripsi -->
+    <p>Saya adalah seorang editor newbie dan ingin segera sukses, mau tau lebih banyak tentang saya? yuk check instagram saya dibawah!</p>
+
+    <!-- Tombol Instagram -->
+    <div class="contact">
+      <a id="igButton" href="https://instagram.com/mhmyl_" target="_blank">
+        Kunjungi Instagram
+      </a>
+    </div>
+
+    <!-- Galeri -->
+    <div class="gallery">
+      <img src="images/karya1.jpg" alt="Karya 1">
+      <img src="images/karya2.jpg" alt="Karya 2">
+      <img src="images/karya3.jpg" alt="Karya 3">
+    </div>
+  </div>
+
+  <footer>
+    © 2025 | Dibuat dengan ♥ oleh Muhammad Yusuf Lauma
+  </footer>
+
+  <script>
+    // Efek tombol interaktif mengikuti kursor
+    const button = document.getElementById('igButton');
+    const strength = 20;
+
+    document.addEventListener('mousemove', (e) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 2;
+      const y = (e.clientY / innerHeight - 0.5) * 2;
+
+      button.style.transform = `translate(${x * strength}px, ${y * strength}px) scale(1.05)`;
+    });
+
+    document.addEventListener('mouseleave', () => {
+      button.style.transform = 'translate(0, 0) scale(1)';
+    });
+  </script>
+</body>
+</html>
